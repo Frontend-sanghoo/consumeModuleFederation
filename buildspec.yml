@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+  exported-variables:
+    - CODEBUILD_BUILD_ID
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - node -v
+      - ls -al
+      - npm install
+  pre_build:
+    commands:
+      - echo "Pre-build phase"
+  build:
+    commands:
+      - sh build.sh
+  post_build:
+    commands:
+      - ls -al
+
+artifacts:
+  files:
+    - 'package*.json'
+    - '.next/**/*'
+    - 'next.config.js'
+
+cache:
+  paths:
+    - 'node_modules/**/*'

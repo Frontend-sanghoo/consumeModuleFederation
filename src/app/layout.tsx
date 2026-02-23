@@ -1,6 +1,6 @@
 import Script from 'next/script';
 
-const S3_BUCKET_URL = 's3버킷이름';
+const S3_BUCKET_URL = 'https://module-federation-test.mnpp.cc/module-federation';
 
 export const metadata = {
   title: 'Consume Module Federation',
@@ -21,7 +21,9 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
