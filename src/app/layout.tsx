@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import './globals.css';
 
 const S3_BUCKET_URL = 'https://module-federation-test.mnpp.cc/module-federation';
 
@@ -15,6 +16,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Module Federation CSS 로드 */}
+        <link
+          rel="stylesheet"
+          href={`${S3_BUCKET_URL}/css/styles.css`}
+        />
         {/* 클라이언트용 remoteEntry.js 미리 로드 */}
         <Script
           src={`${S3_BUCKET_URL}/client/remoteEntry.js`}
